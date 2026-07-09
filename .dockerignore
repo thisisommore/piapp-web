@@ -1,0 +1,46 @@
+# Dependencies & local install artifacts
+node_modules
+.pnpm-store
+
+# Build outputs (always rebuild in image)
+build
+.svelte-kit
+.output
+.vercel
+.netlify
+.wrangler
+
+# Git / IDE / OS
+.git
+.gitignore
+.gitattributes
+.vscode
+.idea
+*.swp
+.DS_Store
+Thumbs.db
+
+# Env and secrets (inject at runtime)
+.env
+.env.*
+!.env.example
+
+# Docs & tests (not needed for image build)
+*.md
+!README.md
+coverage
+tests
+**/__tests__
+e2e
+playwright-report
+test-results
+
+# Docker itself
+Dockerfile*
+.dockerignore
+
+# Lint / format tooling inputs not required at build time
+# (eslint/prettier configs are unused by `vite build`, keep out of context)
+eslint.config.js
+prettier.config.js
+.prettierignore
