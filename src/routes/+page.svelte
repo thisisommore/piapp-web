@@ -10,13 +10,9 @@
 	<div class="mb-8">
 		<span class="font-serif text-6xl font-thin text-pi-soft sm:text-7xl">π</span>
 	</div>
-	<h1 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-		Pi Dev
-	</h1>
+	<h1 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Pi Dev</h1>
 	<p class="mt-4 max-w-xl text-lg leading-relaxed text-white/65">
-		A mobile coding agent that talks to <em class="not-italic text-white/85"
-			>your</em
-		>
+		A mobile coding agent that talks to <em class="not-italic text-white/85">your</em>
 		Pi server - chat, tools, repos, and sessions under your control.
 	</p>
 	<div class="mt-10 flex flex-wrap gap-3">

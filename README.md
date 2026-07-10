@@ -1,42 +1,45 @@
-# sv
+# Pi Dev web
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Public site for **Pi Dev**, including the [Privacy Policy](/privacy).
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-pnpm dlx sv@0.16.2 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography" sveltekit-adapter="adapter:auto" --install pnpm piapp-web
-```
+SvelteKit + Tailwind, served in production with [`@sveltejs/adapter-node`](https://svelte.dev/docs/kit/adapter-node).
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
+pnpm dev
 ```
 
-## Building
-
-To create a production version of your app:
+## Production build (local)
 
 ```sh
-npm run build
+pnpm build
+ORIGIN=http://localhost:3000 pnpm start
 ```
 
-You can preview the production build with `npm run preview`.
+## Docker (production)
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+```sh
+# Build
+docker build -t piapp-web .
+
+# Run (set ORIGIN to your public URL)
+docker run --rm -p 3000:3000 \
+  -e ORIGIN=https://your.domain \
+  piapp-web
+```
+
+Useful environment variables (adapter-node):
+
+| Variable           | Default      | Notes                                           |
+| ------------------ | ------------ | ----------------------------------------------- |
+| `PORT`             | `3000`       | Listen port                                     |
+| `HOST`             | `0.0.0.0`    | Listen address                                  |
+| `ORIGIN`           | -            | Public origin, e.g. `https://example.com`       |
+| `PROTOCOL_HEADER`  | -            | e.g. `x-forwarded-proto` behind a trusted proxy |
+| `HOST_HEADER`      | -            | e.g. `x-forwarded-host` behind a trusted proxy  |
+| `BODY_SIZE_LIMIT`  | `1M` (image) | Max request body size                           |
+| `SHUTDOWN_TIMEOUT` | `30`         | Seconds to drain on SIGTERM                     |
+
+Only set `PROTOCOL_HEADER` / `HOST_HEADER` when the app is behind a **trusted** reverse proxy.
