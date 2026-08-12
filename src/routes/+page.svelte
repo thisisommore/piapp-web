@@ -17,6 +17,14 @@
 	</p>
 	<div class="mt-10 flex flex-wrap gap-3">
 		<a
+			href="https://apps.apple.com/app/pi-dev-mobile/id6789149807"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="inline-flex items-center rounded-full bg-pi-soft px-6 py-3 text-sm font-semibold text-black shadow-lg shadow-indigo-500/25 transition hover:bg-white"
+		>
+			Download on the App Store
+		</a>
+		<a
 			href="/privacy"
 			class="inline-flex items-center rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium text-white ring-1 ring-white/10 transition hover:bg-white/15"
 		>
